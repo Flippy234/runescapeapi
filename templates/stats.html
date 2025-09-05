@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-center">
+    Stats For {{ username }}
+</h1>
+
+<h2>
+  <a href="{{ url_for('index') }}" class="text-decoration-none text-dark">
+    <i class="bi bi-arrow-bar-left fs-2"></i> Home
+  </a>
+</h2>
+
+<!-- Table view (optional, commented out)
+<div class="table-responsive shadow-rounded">
+  <table class="table table-striped table-hover align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Skill</th>
+        <th scope="col">Level</th>
+        <th scope="col">XP</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for skill in skills %}
+      <tr>
+        <td>{{ skill }}</td>
+        <td>{{ stats[skill].level }}</td>
+        <td>{{ stats[skill].xp }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+-->
+
+<section class="container my-5">
+  <div class="overlay">
+  <div class="row g-3">
+    {% for skill in skills %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card skill-card h-100 shadow-sm rounded-extra">
+        <a href="#" class="pop-link text-decoration-none text-light">
+          <div class="card-body text-center" style="background-color: darkslategray;">
+            <h5 class="card-title">{{ skill }}</h5>
+            <p class="card-text"><strong>{{ stats[skill]['level'] }}</strong></p>
+            <p class="card-text"><strong>{{ stats[skill]['xp'] }}</strong></p>
+
+            <div class="progress" style="height: 20px;">
+              <div 
+                class="progress-bar bg-success" 
+                role="progressbar" 
+                style="width: {{ stats[skill]['percent'] }}%;" 
+                aria-valuenow="{{ stats[skill]['percent'] }}" 
+                aria-valuemin="0" 
+                aria-valuemax="100">
+                {{ stats[skill]['percent'] }}%
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+</section>
+
+<!-- <h2>Levels Chart</h2>
+<canvas id="skillsChart"></canvas> -->
+
+
+<script>
+  // const skillLabels = {{ skills|tojson | safe }};
+  // const skillLevels = {{ levels|tojson | safe }};
+
+  // // Generate enough colors for all skills
+  // const backgroundColors = skillLabels.map((_, i) => {
+  //   const hue = (i * 137.508) % 360; // golden angle to spread colors
+  //   return `hsl(${hue}, 70%, 60%)`;
+  // });
+
+  // const ctx = document.getElementById('skillsChart').getContext('2d');
+  // new Chart(ctx, {
+  //   type: 'pie',
+  //   data: {
+  //     labels: skillLabels,
+  //     datasets: [{
+  //       label: 'Levels',
+  //       data: skillLevels,
+  //       backgroundColor: backgroundColors,
+  //       borderColor: 'white',
+  //       borderWidth: 2
+  //     }]
+  //   },
+  //   options: {
+  //     responsive: true,
+  //     plugins: {
+  //       legend: { position: 'right' },
+  //       title: {
+  //         display: true,
+  //         text: 'Skill Levels Distribution'
+  //       }
+  //     }
+  //   }
+  // });
+</script>
+{% endblock %}
