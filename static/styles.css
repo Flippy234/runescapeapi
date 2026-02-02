@@ -1,92 +1,16 @@
-/* html body { 
-    font-family:Arial, Helvetica, sans-serif;
-    text-align: center;
-    background-color: rgb(111, 63, 63);
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: sparkle 3s infinite;
+    pointer-events: none;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    margin-bottom: 10px;
-}
-
-.container {
-    margin: 30px auto;
-    width: 80%;
-}
-
-form input, form button {
-    padding: 10px;
-    margin: 5px;
-    font-size: 16px;
-}
-
-/* table {
-    border-collapse: collapse;
-    width: 80%;
-    background-color: aquamarine;
-    margin: 20px auto; 
-}
-
-a {
-
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-tr {
-    
-} */
-
-/* .error {
-    color: red;
-} */ 
-
-/* .pop-link {
-    transition: all 0.15s ease-in-out; 
-      display: inline-block;
-}
-
-.pop-link:hover {
-      transform: scale(1.15); 
-      color: lightslategrey;
-}
-
-.rounded-extra {
-    border-radius: 1.5rem !important;
-    overflow: hidden;
-    margin: 0;
-} */
-
-/* Extra rounded corners */
-.rounded-extra {
-  border-radius: 1.5rem !important;
-  margin: 0; /* remove outside white space */
-  overflow: hidden; /* ensures hover scale doesn't overflow card */
-}
-
-/* Hover pop-out effect */
-.pop-link .card-body {
-  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.pop-link:hover .card-body {
-  transform: scale(1.05);
-  box-shadow: 0 1.5rem 1rem rgba(0, 0, 0, 0.3);
-}
-
-.overlay {
-  width: auto;
-  height: auto;
-  /* background-image: url(runescapebg.png); Image behind content */
-  background-color: slategrey;
-  background-size: cover;      /* Make image cover the div */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  border: .55em solid rgb(66, 73, 80);
-  border-radius: 1.5rem;
-  color: white;                /* Make text readable */
-  padding: 20px;
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1) rotate(180deg); }
 }
